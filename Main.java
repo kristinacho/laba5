@@ -29,13 +29,14 @@ public class Main {
         System.out.println("\nЗадание 2.1. Количество мяуканий.");
         Cat myCat = new Cat("Барсик");
 
-        MeowCounter counter = new MeowCounter();
+        MeowCounter countermeow = new MeowCounter(myCat);
+        countermeow.countMeows();
+        countermeow.countMeows();
+        countermeow.countMeows();
+        countermeow.countMeows();
+        countermeow.countMeows();
 
-        int numberOfMeows = 250;
-
-        counter.countMeows(myCat, numberOfMeows);
-
-        System.out.println(myCat.getName() + " мяукал " + counter.getMeowCount() + " раз.");
+        System.out.println(myCat.getName() + " мяукал " + countermeow.getMeowCount() + " раз.");
 
         //Задание 3.2.
         System.out.println("\nЗадание 3.2.Список.");
