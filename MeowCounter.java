@@ -1,11 +1,14 @@
 public class MeowCounter {
-    private int meowCount = 0; // Счетчик мяуканий
+    private int meowCount = 0;// Счетчик мяуканий
+    private Meowable cat;
 
-    public void countMeows(Meowable meowable, int times) {
-        for (int i = 0; i < times; i++) {
-            meowable.meow();
+    public MeowCounter(Meowable cat){
+        this.cat = cat;
+    }
+
+    public void countMeows() {
+            cat.meow();
             meowCount++;
-        }
     }
     public int getMeowCount() {
         return meowCount;
