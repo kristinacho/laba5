@@ -3,7 +3,6 @@ import java.util.Objects;
 public class Fraction implements FractionInterface {
     private int numerator;
     private int denominator;
-    private Double cachedRealValue;
 
     public Fraction(int numerator, int denominator) {
         if (denominator == 0) {
@@ -52,16 +51,12 @@ public class Fraction implements FractionInterface {
 
     @Override
     public double getRealValue() {
-        if (cachedRealValue == null) {
-            cachedRealValue = (double) numerator / denominator; // Кэшируем значение
-        }
-        return cachedRealValue;
+        return (double) numerator / denominator; // Возвращаем вещественное значение
     }
 
     @Override
     public void setNumerator(int numerator) {
         this.numerator = numerator;
-        cachedRealValue = null;
         reduce();
     }
 
@@ -76,35 +71,6 @@ public class Fraction implements FractionInterface {
         } else {
             this.denominator = denominator;
         }
-        cachedRealValue = null;
         reduce();
     }
-
-    // Сложение дробей
-    public Fraction sum(Fraction other) {
-        int newNumerator = this.numerator * other.denominator + other.numerator * this.denominator;
-        int newDenominator = this.denominator * other.denominator;
-        return new Fraction(newNumerator, newDenominator);
-    }
-
-    // Вычитание дробей
-    public Fraction minus(Fraction other) {
-        int newNumerator = this.numerator * other.denominator - other.numerator * this.denominator;
-        int newDenominator = this.denominator * other.denominator;
-        return new Fraction(newNumerator, newDenominator);
-    }
-
-    // Умножение дробей
-    public Fraction multiply(Fraction other) {
-        return new Fraction(this.numerator * other.numerator, this.denominator * other.denominator);
-    }
-
-    // Деление дробей
-    public Fraction div(Fraction other) {
-        if (other.numerator == 0) {
-            throw new IllegalArgumentException("Деление на ноль невозможно.");
-        }
-        return new Fraction(this.numerator * other.denominator, this.denominator * other.numerator);
-    }
-
 }
