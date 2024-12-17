@@ -4,13 +4,13 @@ public class CachedFraction implements FractionInterface {
 
     public CachedFraction(Fraction fraction) {
         this.fraction = fraction;
-        this.cachedRealValue = null; // Изначально кэш пуст
+        this.cachedRealValue = null;
     }
 
     @Override
     public double getRealValue() {
         if (cachedRealValue == null) {
-            cachedRealValue = fraction.getRealValue(); // Кэшируем значение
+            cachedRealValue = fraction.getRealValue(); 
         }
         return cachedRealValue;
     }
@@ -18,17 +18,17 @@ public class CachedFraction implements FractionInterface {
     @Override
     public void setNumerator(int numerator) {
         fraction.setNumerator(numerator);
-        cachedRealValue = null; // Сбрасываем кэш при изменении числителя
+        cachedRealValue = null; 
     }
 
     @Override
     public void setDenominator(int denominator) {
         fraction.setDenominator(denominator);
-        cachedRealValue = null; // Сбрасываем кэш при изменении знаменателя
+        cachedRealValue = null; 
     }
 
     @Override
     public String toString() {
-        return fraction.toString(); // Возвращаем строковое представление дроби
+        return fraction.toString(); 
     }
 }
