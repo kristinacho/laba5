@@ -12,27 +12,18 @@ public class Main {
         //Задание 1.1.Шаблоны.
         System.out.println("Задание 1.1. Шаблоны.");
 
-        Fraction fraction1 = new Fraction(-3, 4);
-        Fraction fraction2 = new Fraction(6, 8);
+        Fraction fraction = new Fraction(1, 2);
+        CachedFraction cachedFraction = new CachedFraction(fraction);
 
-        System.out.println("Дробь1: " + fraction1);
-        System.out.println("Дробь2: " + fraction2);
+        System.out.println("Вещественное значение: " + cachedFraction.getRealValue()); // Вычисляет и кэширует значение
 
-        System.out.println("Равенство дробей: " + fraction1.equals(fraction2));
+        cachedFraction.setNumerator(3);
 
-        System.out.println("Вещественное значение дроби1: " + fraction1.getRealValue()); // Ожидаем -0.75
+        System.out.println("Новое вещественное значение: " + cachedFraction.getRealValue()); // Пересчитывает значение после изменения
 
-        Fraction sum = new Fraction(1, 3).sum(fraction1);
-        System.out.println("Сумма дробей: " + sum);
+        cachedFraction.setDenominator(4);
 
-        Fraction difference = new Fraction(3, 4).minus(new Fraction(1, 2));
-        System.out.println("Разность дробей: " + difference);
-
-        Fraction product = new Fraction(3, 4).multiply(new Fraction(2, 3));
-        System.out.println("Произведение дробей: " + product);
-
-        Fraction division = new Fraction(3, 4).div(new Fraction(1, 2));
-        System.out.println("Деление дробей: " + division);
+        System.out.println("После изменения знаменателя: " + cachedFraction.getRealValue()); // Пересчитывает значение после изменения
 
         //Задание 2.1. Количество мяуканий
         System.out.println("\nЗадание 2.1. Количество мяуканий.");
